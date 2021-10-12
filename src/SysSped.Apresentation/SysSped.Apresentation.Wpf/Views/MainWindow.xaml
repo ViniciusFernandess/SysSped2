@@ -1,0 +1,62 @@
+﻿<mah:MetroWindow x:Class="SysSped.Apresentation.Wpf.Views.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 Width="800"
+                 Height="250"
+                 mc:Ignorable="d"
+                 WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="1" Margin="0 10 5 5" Command="{Binding AplicarModoImportarPlanilhaCommand}">Importar Panilha</Button>
+        <Button Grid.Column="2" Margin="5 10 5 5" Command="{Binding AplicarModoCorrigirSpedCommand}">Corrigir Sped</Button>
+        <Button Grid.Column="3" Margin="5 10 0 5" Command="{Binding ExibirTelaRelatorioLogCommand}">Relatório</Button>
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="34*"></ColumnDefinition>
+                    <ColumnDefinition Width="333*"/>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Row="0" Grid.Column="0" FontSize="17" Text="{Binding TxtFile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="1" Foreground="Gray" IsEnabled="False" VerticalContentAlignment="Center" Name="txtFile" Grid.ColumnSpan="3" Margin="0,0,-0.6,-0.6"></TextBox>
+                <!--<Button Grid.Row="0" Grid.Column="1" Margin="10 0 00 0" Padding="10" Name="btnEscolherArquivo"  Command="{Binding EscolherArquivoCommand}">Selecionar</Button>-->
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Background="LightGray" Visibility="Collapsed">
+            <TextBlock Name="txtEditor" Padding="5" Text="{Binding TxtEditor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        </StackPanel>
+        <Button Grid.Row="6" Grid.Column="1" Name="btnAtualizar" 
+                Visibility="{Binding BtnAtualizarVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Command="{Binding AtualizarCommand}">
+            Atualizar
+        </Button>
+        <Button Grid.Row="6" Grid.Column="3" Name="btnReImportar" 
+                Visibility="{Binding BtnReImportarVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Command="{Binding ReimportarCommand}">Reimportar</Button>
+        <Button Grid.Row="6" Grid.Column="3" Name="btnCorrigirSped" 
+                Visibility="{Binding BtnCorrigirSpedVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Command="{Binding CorrigirSpedCommand}">Corrigir</Button>
+            <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Margin="5, 0, 0, 0 ">versão: 2.0.31</TextBlock>
+    </Grid>
+</mah:MetroWindow>
