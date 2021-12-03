@@ -88,8 +88,8 @@ namespace SysSped.Infra.CrossCutting.Excel
 
             var arquivoMapeado = ExecutaMapeamentoCampos(sheet);
 
-            if (arquivoMapeado.Rows.Count != arquivoMapeado.Rows.Select(x => x.codigointerno.Trim().ToLower()).Distinct().Count())
-                AddErro(new RequestResult(Resource.ARQUIVO_EXCEL_TEM_CODINTERNO_REPETIDO));
+            //if (arquivoMapeado.Rows.Count != arquivoMapeado.Rows.Select(x => x.codigointerno.Trim().ToLower()).Distinct().Count())
+            //    AddErro(new RequestResult(Resource.ARQUIVO_EXCEL_TEM_CODINTERNO_REPETIDO));
 
             //if (arquivoMapeado.Rows.Count(x => !string.IsNullOrEmpty(x.ean)) != arquivoMapeado.Rows.Where(x => !string.IsNullOrEmpty(x.ean)).Select(x => x.ean.Trim().ToLower()).Distinct().Count())
             //    AddErro(new RequestResult(Resource.ARQUIVO_EXCEL_TEM_EAN_REPETIDO));

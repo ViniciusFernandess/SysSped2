@@ -339,8 +339,8 @@ namespace SysSped.Apresentation.Wpf.ViewModels
             string caminhoLogC170NaoAlteradosDest = "";
             await Task.Factory.StartNew(() =>
             {
-                try
-                {
+                //try
+                //{
                     var txtArquivo = ObtemTextoLidoArquivo(TxtFile);
 
                     var sped = _servSped.ExecutaLeitura(txtArquivo);
@@ -358,12 +358,12 @@ namespace SysSped.Apresentation.Wpf.ViewModels
                     }
 
                     caminhoLogC170NaoAlteradosDest = _servLogSped.ExtrairRelatorioC100NaoTratado(sped, arquivoIrginal.DirectoryName);
-                }
-                catch (Exception ex)
-                {
-                    teveerro = true;
-                    mensagemErro = ex.Message.ToString() + "\n" + ex.InnerException?.Message ?? "";
-                }
+                //}
+                //catch (Exception ex)
+                //{
+                //    teveerro = true;
+                //    mensagemErro = ex.Message.ToString() + "\n" + ex.InnerException?.Message ?? "";
+                //}
 
             });
 

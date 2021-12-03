@@ -106,8 +106,9 @@ namespace SysSped.Infra.CrossCutting.Excel
                 sheet.Cells[row, 3].Value = item.CST_PIS;
                 sheet.Cells[row, 4].Value = item.CST_COFINS;
             }
+            var ttRows = c170s.Count == 0 ? 1 : c170s.Count;
 
-            var range = sheet.Cells[1, 1, c170s.Count, 4];
+            var range = sheet.Cells[1, 1, ttRows, 4];
             sheet.Tables.Add(range, "Log");
             sheet.Cells.AutoFitColumns();
 
